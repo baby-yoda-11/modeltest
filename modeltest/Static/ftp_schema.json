@@ -1,0 +1,309 @@
+{
+  "id": "ftp",
+  "title": "FTP - Configuration",
+  "type": "object",
+  "widget": {
+    "formlyConfig": {
+      "fieldGroupClassName": "form-main-wrap",
+      "labelClassName": "form-main-title"
+    }
+  },
+  "definitions": {
+    "grid_columns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "connection": {
+      "title": "Connection",
+      "type": "object",
+      "widget": {
+        "formlyConfig": {
+          "className": "",
+          "fieldGroupClassName": "display-flex",
+          "labelClassName": "form-sub-title"
+        }
+      },
+      "properties": {
+        "settings": {
+          "type": "object",
+          "widget": {
+            "formlyConfig": {
+              "fieldGroupClassName": "display-flex",
+              "className": "flex-1"
+            }
+          },
+          "properties": {
+            "host": {
+              "type": "string",
+              "widget": {
+                "formlyConfig": {
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline",
+                    "label": "Host"
+                  }
+                }
+              }
+            },
+            "connectionMode": {
+              "title": "Connection Mode",
+              "type": "enum",
+              "default": "Active",
+              "widget": {
+                "formlyConfig": {
+                  "type": "enum",
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline",
+                    "options": [
+                      {
+                        "value": "Active",
+                        "label": "Active"
+                      },
+                      {
+                        "value": "Passive",
+                        "label": "Passive"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "sslMode": {
+              "title": "SSL Mode",
+              "type": "enum",
+              "default": "None",
+              "widget": {
+                "formlyConfig": {
+                  "type": "enum",
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline",
+                    "options": [
+                      {
+                        "value": "None",
+                        "label": "None"
+                      },
+                      {
+                        "value": "Implicit",
+                        "label": "Implicit"
+                      },
+                      {
+                        "value": "Explicit",
+                        "label": "Explicit"
+                      },
+                      {
+                        "value": "Auto",
+                        "label": "Auto"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "port": {
+              "type": "integer",
+              "title": "Port",
+              "minimum": 0,
+              "widget": {
+                "formlyConfig": {
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline"
+                  }
+                }
+              }
+            },
+            "userName": {
+              "type": "string",
+              "title": "User Name",
+              "widget": {
+                "formlyConfig": {
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline"
+                  }
+                }
+              }
+            },
+            "password": {
+              "type": "string",
+              "title": "Password",
+              "widget": {
+                "formlyConfig": {
+                  "className": "flex-3",
+                  "templateOptions": {
+                    "appearance": "outline"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "host",
+            "userName",
+            "password",
+            "connectionMode",
+            "sslMode"
+          ]
+        }
+      }
+    },
+    "operation": {
+      "title": "Operation",
+      "type": "object",
+      "widget": {
+        "formlyConfig": {
+          "fieldGroupClassName": "display-flex",
+          "labelClassName": "form-sub-title"
+        }
+      },
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "enum",
+          "default": "Get",
+          "widget": {
+            "formlyConfig": {
+              "type": "enum",
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "options": [
+                  {
+                    "value": "Get",
+                    "label": "GET"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "ftpAction": {
+          "title": "FTP Action",
+          "type": "enum",
+          "default": "DownloadFiles",
+          "widget": {
+            "formlyConfig": {
+              "type": "enum",
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "options": [
+                  {
+                    "value": "DownloadFiles",
+                    "label": "Download Files"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "remoteDirectory": {
+          "type": "string",
+          "widget": {
+            "formlyConfig": {
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "label": "Remote Directory"
+              }
+            }
+          }
+        },
+        "fileFilter": {
+          "type": "string",
+          "widget": {
+            "formlyConfig": {
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "label": "File filter"
+              }
+            }
+          }
+        },
+        "transferType": {
+          "title": "Transfer Type",
+          "type": "enum",
+          "default": "Binary",
+          "widget": {
+            "formlyConfig": {
+              "type": "enum",
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "options": [
+                  {
+                    "value": "Binary",
+                    "label": "Binary"
+                  },
+                  {
+                    "value": "Ascii",
+                    "label": "ASCII"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "maxFilesToRead": {
+          "type": "integer",
+          "minimum": 0,
+          "widget": {
+            "formlyConfig": {
+              "className": "flex-3",
+              "templateOptions": {
+                "appearance": "outline",
+                "label": "Max files to read"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "action",
+        "ftpAction",
+        "remoteDirectory",
+        "transferType"
+      ]
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "widget": {
+        "formlyConfig": {
+          "className": "flex-3",
+          "templateOptions": {
+            "appearance": "outline",
+            "label": "Name"
+          }
+        }
+      }
+    },
+    "connection": {
+      "$ref": "#/definitions/connection"
+    },
+    "operation": {
+      "$ref": "#/definitions/operation"
+    }
+  },
+  "required": [ "name" ],
+  "grid_columns": [
+    {
+      "headerName": "Name",
+      "field": "json.name",
+      "sortable": true,
+      "width": 350
+    },
+    {
+      "headerName": "Host",
+      "field": "json.connection.settings.host",
+      "sortable": true,
+      "width": 350
+    }
+  ]
+}
