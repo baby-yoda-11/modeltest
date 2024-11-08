@@ -12,7 +12,14 @@ namespace modeltest.Validators
             {
                 schema.IsNullableRaw = true;
             }
-
+            if (schema.Id == "sftp")
+            {
+                var errors= SftpValidator.Validate(token,schema);
+                if (errors.Any())
+                {
+                    return errors;
+                }
+            }
             return base.Validate(token, schema, schemaType, propertyName, propertyPath);
         }
     }
